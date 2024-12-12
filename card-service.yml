@@ -5,6 +5,17 @@ spring:
   application:
     name: card-service
 
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: card-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    properties:
+      enable.auto.commit: false
+
+
   datasource:
     url: jdbc:h2:mem:testdb
     driver-class-name: org.h2.Driver

@@ -5,6 +5,17 @@ spring:
   application:
     name: loans-service
 
+  kafka:
+  bootstrap-servers: localhost:9092
+  consumer:
+    group-id: loan-group
+    auto-offset-reset: earliest
+    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  properties:
+    enable.auto.commit: false
+
+
   datasource:
     url: jdbc:h2:mem:testdb
     driver-class-name: org.h2.Driver

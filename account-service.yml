@@ -5,6 +5,19 @@ spring:
   application:
     name: account-service
 
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      group-id: my-group
+    topic:
+      account: account-events
+
+
   datasource:
     url: jdbc:h2:mem:testdb
     driver-class-name: org.h2.Driver
